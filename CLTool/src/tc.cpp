@@ -101,7 +101,7 @@ int main(int argc, char **argv) {
   bool bUsePVRTexLib = false;
   bool bUseNVTT = false;
   bool bVerbose = false;
-  bool cutTheCrap = false;
+  bool bJustSaveOutput = false;
   FasTC::ECompressionFormat format = FasTC::eCompressionFormat_BPTC;
 
   bool knowArg = false;
@@ -261,7 +261,7 @@ int main(int argc, char **argv) {
 
 		fileArg++;
 		knowArg = true;
-		cutTheCrap = true;
+		bJustSaveOutput = true;
 		continue;
 	}
 
@@ -317,7 +317,7 @@ int main(int argc, char **argv) {
     return 1;
   }
 
-  if (cutTheCrap) {
+  if (bJustSaveOutput) {
 
 	  const uint8* data = ci->GetCompressedData();
 	  uint32 size = ci->GetCompressedSize();
