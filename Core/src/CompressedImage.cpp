@@ -38,7 +38,7 @@ using FasTC::ECompressionFormat;
 CompressedImage::CompressedImage( const CompressedImage &other )
   : UncompressedImage(other)
   , m_Format(other.m_Format)
-  , m_CompressedData(0)
+  , m_CompressedData(nullptr)
 {
   if(other.m_CompressedData) {
     uint32 compressedSz = GetCompressedSize();
@@ -53,9 +53,9 @@ CompressedImage::CompressedImage(
   const ECompressionFormat format,
   const unsigned char *data
 )
-  : UncompressedImage(width, height, reinterpret_cast<uint32 *>(NULL))
+  : UncompressedImage(width, height, (uint32*)nullptr)
   , m_Format(format)
-  , m_CompressedData(0)
+  , m_CompressedData(nullptr)
 {
   uint32 cmpSz = GetCompressedSize();
   if(cmpSz > 0) {
